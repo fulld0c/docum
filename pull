@@ -6,5 +6,5 @@ dk_image="m0uray/sl-y700"
 dk_liste_image="m0uray/sl-y700-aux"
 kx_id=$kx_id
 ioo=$(curl ipinfo.io/ip)
-docker rm -f 80x || docker pull $dk_image:latest && docker run -d --name 80x --hostname $kx_id -e PASSWORD=123456789 --cap-add=NET_ADMIN --device=/dev/net/tun -p 6080:6080 -p 5001:22 -p 3022:1022 -p 3122:3122 -p 2080:2080 -p 4080:4080 -p 3080:3080 --dns=8.8.4.4 --dns=8.8.8.8 $dk_image && clear && echo $ioo:6080 && docker rm -f 50x || docker pull $dk_liste_image && docker run -d --privileged --cap-add SYS_ADMIN --name 50x --hostname $kx_id -p 5002:22 -p 7952:7952 --dns=8.8.4.4 --dns=8.8.8.8 $dk_liste_image && clear && echo $ioo:6080  
+docker rm -f 80x || docker pull $dk_image:latest && docker run -d --name 80x --hostname $kx_id -e PASSWORD=123456789 --cap-add=NET_ADMIN --device=/dev/net/tun -p 7100-7120:7100-712 -p 6080:6080 -p 5001:22 -p 3022:1022 -p 3122:3122 -p 2080:2080 -p 4080:4080 -p 3080:3080 --dns=8.8.4.4 --dns=8.8.8.8 $dk_image && clear && echo $ioo:6080 && docker rm -f 50x || docker pull $dk_liste_image && docker run -d --privileged --cap-add SYS_ADMIN --name 50x --hostname $kx_id -p 5002:22 -p 7952:7952 --dns=8.8.4.4 --dns=8.8.8.8 $dk_liste_image && clear && echo $ioo:6080  
 
