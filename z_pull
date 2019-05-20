@@ -1,0 +1,13 @@
+
+export image_1="n0luck/slop-trans"
+
+
+vz_mac=$(od -An -N6 -tx1 /dev/urandom | sed -e 's/^  *//' -e 's/  */:/g' -e 's/:$//' -e 's/^\(.\)[13579bdf]/\10/')
+
+export z_mac=$vz_mac
+echo $z_mac
+docker pull $image_1 && docker run -d \
+ --name 800x --mac-address $z_mac --hostname $kx_id \
+ -e PASSWORD=123456789 --cap-add=NET_ADMIN --device=/dev/net/tun \
+ -p 6080:6080 -p 5001:22 -p 6001:3389 -p 1022:1022 -p 1984:1984 -p 3000:3000 -p 7777:80 --dns=8.8.4.4 \
+ --dns=8.8.8.8 $image_1 && clear && ioo=$(curl ipinfo.io/ip) && echo $ioo:6080 && echo ssh -p 5001 $ioo && echo $z_mac
