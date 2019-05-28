@@ -1,7 +1,6 @@
 
-export image_1="n0luck/slop-trans"
-
-
+export image_1="m0uray/slop-trans"
+#
 vz_mac=$(od -An -N6 -tx1 /dev/urandom | sed -e 's/^  *//' -e 's/  */:/g' -e 's/:$//' -e 's/^\(.\)[13579bdf]/\10/')
 
 export z_mac=$vz_mac
